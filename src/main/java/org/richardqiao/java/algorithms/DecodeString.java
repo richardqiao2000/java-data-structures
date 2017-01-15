@@ -22,37 +22,33 @@ import java.util.Stack;
 
 public class DecodeString {
   public String decode(String s){
-    if(s == null || s.equals("")){
-      return s;
-    }
-    String res = "";
+    StringBuilder res = new StringBuilder();
     int cur = 0;
     Stack<Integer> stackI = new Stack();
     Stack<String> stackS = new Stack();
     for(int i = 0; i < s.length(); i++){
       char ch = s.charAt(i);
       if(Character.isLetter(ch)){
-        res += ch;
+        res.append(ch);
       }else if(Character.isDigit(ch)){
         cur = ch - '0';
-        while(Character.isDigit(s.charAt(++i))){
+        while(Character.isDigit(s.charAt(i + 1))){
           cur *= 10;
-          cur += s.charAt(i) - '0';
+          cur += s.charAt(++i) - '0';
         }
-        i--;
         stackI.push(cur);
       }else if(ch == '['){
-        stackS.push(res);
-        res = "";
+        stackS.push(res.toString());
+        res.setLength(0);
       }else{
-        String tmp = stackS.pop();
+        String tmp = res.toString();
+        res = new StringBuilder(stackS.pop());
         int count = stackI.pop();
         while(count-- > 0){
-          tmp += res;
+          res.append(tmp);
         }
-        res = tmp;
       }
     }
-    return res;
+    return res.toString();
   }
 }

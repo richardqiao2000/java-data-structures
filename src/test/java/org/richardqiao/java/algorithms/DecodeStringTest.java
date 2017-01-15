@@ -14,8 +14,9 @@ public class DecodeStringTest {
   @Test
   public void testDecode() {
     DecodeString ds = new DecodeString();
-    System.out.println(ds.decode("3[a]2[bc]"));
     assertEquals(new DecodeString().decode("3[a]2[bc]"), "aaabcbc");
+    assertEquals(new DecodeString().decode("3[a2[c]]"), "accaccacc");
+    assertEquals(new DecodeString().decode("2[abc]3[cd]ef"), "abcabccdcdcdef");
   }
 
 }
