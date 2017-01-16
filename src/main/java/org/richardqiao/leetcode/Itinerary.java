@@ -21,7 +21,6 @@ public class Itinerary {
 
 	static List<String> reconstruct(String[][] tickets){
 		Arrays.sort(tickets, new Comparator<String[]>(){
-			@Override
 			public int compare(String[] a, String[] b){
 				if(a[0].equals(b[0])){
 					return a[1].compareTo(b[1]);
