@@ -13,7 +13,7 @@ public class RandomMathProblems {
   public RandomMathProblems(){
     DIGITS = 3;
   }
-  
+   
   public static void main(String[] args) throws IOException {
     RandomMathProblems app = new RandomMathProblems();
     File file = new File("E:/Workspaces/Algorithm/java-datastructures/target/test.txt");
