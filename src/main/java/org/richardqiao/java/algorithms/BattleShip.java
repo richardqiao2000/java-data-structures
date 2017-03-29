@@ -1,5 +1,5 @@
 package org.richardqiao.java.algorithms;
-
+ 
 import java.util.*;
 
 public class BattleShip {
